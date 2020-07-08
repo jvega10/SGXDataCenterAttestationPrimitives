@@ -60,7 +60,7 @@ exports.pck_cert_select = function(cpu_svn, pce_svn, pce_id, tcb_info, pem_certs
     var my_pce_id = Buffer.from(pce_id, 'hex').readInt16LE();
     var best_index_ptr = ref.alloc('int');
     let ret = pcklib.pck_cert_select(my_cpu_svn.ref(), my_pce_svn, my_pce_id, tcb_info, pem_certs, ncerts, best_index_ptr);
-    if (ret == 0) {
+    if (ret >= 0) {
         var best_index = best_index_ptr.deref();
         return best_index;
     }

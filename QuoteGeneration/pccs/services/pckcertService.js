@@ -110,7 +110,7 @@ exports.getPckCertFromPCS = async function(qeid, cpusvn, pcesvn, pceid, enc_ppid
 
     // parse arbitary cert to get fmspc value
     const x509 = new X509();
-    if (!x509.parseCert(unescape(pckcerts[0].cert))) {
+    if (!x509.parseCert(unescape(pckcerts[1].cert))) {
         throw new PccsError(PCCS_STATUS.PCCS_STATUS_INTERNAL_ERROR);
     }
 
