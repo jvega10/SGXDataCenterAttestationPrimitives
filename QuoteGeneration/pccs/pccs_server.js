@@ -56,13 +56,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({limit:"200000kb"}));
 
 // authentication middleware
-app.get('/sgx/certification/v2/platforms', Auth.validateAdmin);
-app.post('/sgx/certification/v2/platforms', Auth.validateUser);
-app.use('/sgx/certification/v2/platformcollateral', Auth.validateAdmin);
-app.use('/sgx/certification/v2/refresh', Auth.validateAdmin);
+app.get('/sgx/certification/v3/platforms', Auth.validateAdmin);
+app.post('/sgx/certification/v3/platforms', Auth.validateUser);
+app.use('/sgx/certification/v3/platformcollateral', Auth.validateAdmin);
+app.use('/sgx/certification/v3/refresh', Auth.validateAdmin);
 
 // router
-app.use('/sgx/certification/v2', routes);
+app.use('/sgx/certification/v3', routes);
 
 // error handling middleware
 app.use(ErrorHandling.errorHandling);
